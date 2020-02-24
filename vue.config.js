@@ -1,6 +1,6 @@
 module.exports = {
     publicPath: './',    //部署应用时的根路径(默认'/'),也可用相对路径(存在使用限制)
-    outputDir: 'dist',        //运行时生成的生产环境构建文件的目录(默认'dist'，构建之前会被清除)
+    outputDir: 'dist1',        //运行时生成的生产环境构建文件的目录(默认'dist'，构建之前会被清除)
     assetsDir: '',        //静态资源目录(js、css、img、fonts)，相对outputDir的目录(默认'')
 indexPath: 'index.html', //指定生成index.html的输出路径(相对outputDir)也可以是绝对路径
 lintOnSave: true,                //是否开启ESlint（保存时检查）
