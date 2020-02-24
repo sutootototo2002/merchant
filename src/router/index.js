@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+
 
 Vue.use(VueRouter)
 
@@ -8,7 +8,40 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    redirect:'/doc',
+    component: () => import(/* webpackChunkName: "about" */ '../components/Home'),
+    children: [
+      {
+        path:'/vant',
+        name:'vant',
+        component: () => import(/* webpackChunkName: "about" */ '../components/post.md'),
+      },
+      {
+        path:'/vant1',
+        name:'vant1',
+        component: () => import(/* webpackChunkName: "about" */ '../components/post1.md'),
+      },
+      {
+        path:'/doc',
+        name:'doc',
+        component: () => import(/* webpackChunkName: "about" */ '../components/doc.md'),
+      },
+      {
+        path:'/card',
+        name:'card',
+        component: () => import(/* webpackChunkName: "about" */ '../components/card.md'),
+      },
+      {
+        path:'/card2',
+        name:'card2',
+        component: () => import(/* webpackChunkName: "about" */ '../components/card3.md'),
+      },
+      {
+        path:'/nginx',
+        name:'nginx',
+        component: () => import(/* webpackChunkName: "about" */ '../components/nginx_pz.md'),
+      }
+    ]
   },
   {
     path: '/about',
@@ -16,7 +49,15 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../components/card.vue')
+  },
+  {
+    path: '/card3',
+    name: 'card3',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../components/card3.vue')
   }
 ]
 
